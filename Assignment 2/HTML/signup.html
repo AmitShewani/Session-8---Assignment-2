@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 8.3 - Front End Web Development Fundamentals</title>
+	<style type="text/css">
+		/*Applying basic style to h1 and body contents*/
+		h1
+		{
+			color:blue;
+			font-size: 30px;
+			font-family: arial;
+			text-decoration: underline;
+			text-align:center;
+		}
+		body
+		{
+			font-size: 18px;
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<body>
+	<h1>Welcome to my website!</h1>
+	<br><br><br>
+<div style="text-align:center;">
+	<p>Sign Up</p><br>
+	<form>
+	<input type="text" id="nameField" placeholder="name" required /><br>
+	<input type="email" id="emailField" placeholder="email" required /><br>
+	<input type="password" id="pwdField" placeholder="password" required/><br>
+	<input type="submit" name="subButton" value="Submit Query" onclick="onClickingSubmit();">
+	<input type="button" name="backButton" value="Back" onclick="location.href='index.html';">
+	</form>
+</div>
+<script type="text/javascript">
+//On clicking submit button , it will check if the input fields are empty or not. if not then it will store the values in the local storage if it exists.
+	function onClickingSubmit()
+	{
+		var name=document.getElementById("nameField").value;
+		var email=document.getElementById("emailField").value;
+		var pwd=document.getElementById("pwdField").value;
+		if ((name==='')||(email==='')||(pwd==='')) 
+		{
+			alert("Please enter all of the field values before submitting!");
+		}
+		else
+		{
+			if (typeof(Storage) !=="undefined") 
+			{
+				localStorage.setItem("Name",name);
+				localStorage.setItem("emailID", email);
+				localStorage.setItem("password", pwd);
+			}
+			else
+			{
+				alert("Local storage not supported!");
+			}
+		}
+	}
+</script>
+</body>
+</html>

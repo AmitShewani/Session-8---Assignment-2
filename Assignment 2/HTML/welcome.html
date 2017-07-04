@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 8.2 - Front End Web Development Fundamentals</title>
+	<style type="text/css">
+		/*Applying basic style to h1 and body contents*/
+		h1
+		{
+			color:blue;
+			font-size: 30px;
+			font-family: arial;
+			text-decoration: underline;
+			text-align:center;
+		}
+		body
+		{
+			font-size: 18px;
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<body>
+	<h1>Welcome to my website!</h1>
+<div style="text-align: center;">
+<p>welcome to <span id="message"></span></p>
+<br>
+<input type="button" value="Log out" onclick="location.href='index.html';" />
+</div>
+<script>
+//displays the username from local storage
+// Check browser support
+if (typeof(Storage) !== "undefined") 
+{
+    // Retrieve
+    document.getElementById("message").innerHTML = localStorage.getItem("Name");
+} 
+else 
+{
+	alert("Local storage is not support!");
+}
+</script>
+</body>
+</html>
